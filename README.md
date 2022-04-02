@@ -1,0 +1,1 @@
+This repository was cloned from [DevOps Playground](https://github.com/DevOpsPlayground) and this is a simplification from [DevOpsPlayground DIY](https://github.com/DevOpsPlayground/DIY) used on [the Hands-on-with-TLS-Authentication-for-Microservices Webinar](https://holisticsecurity.io/2021/06/22/hands-on-with-tls-authentication-for-microservices/).
