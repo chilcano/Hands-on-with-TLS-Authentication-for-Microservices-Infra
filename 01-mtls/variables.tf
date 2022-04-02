@@ -15,7 +15,7 @@ variable "region" {
 variable "instance_count" {
   type        = number
   default     = 1
-  description = "The amount of versions of the infrastructer to make "
+  description = "The amount of versions of the infrastructure to make"
 }
 
 variable "PlaygroundName" {
@@ -27,7 +27,7 @@ variable "PlaygroundName" {
 variable "instances" {
   type        = number
   default     = 1
-  description = "number of instances per dns record"
+  description = "Number of instances per dns record"
 }
 
 variable "domain_name" {
@@ -41,7 +41,8 @@ variable "domain_name" {
 variable "deploy_count" {
   type        = number
   description = "Change this for the number of users of the playground"
-  default     = 60
+  #default     = 60
+  default     = 1
 }
 
 variable "InstanceRole" {
@@ -58,7 +59,7 @@ variable "instance_type" {
 
 variable "scriptLocation" {
   type        = string
-  default     = "./modules/instance/scripts"
+  default     = "../modules/instance/scripts"
   description = "The location of the userData folder"
 }
 

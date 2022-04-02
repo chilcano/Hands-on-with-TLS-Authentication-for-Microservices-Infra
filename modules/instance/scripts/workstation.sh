@@ -1,16 +1,16 @@
 #!/usr/bin/env bash
 
-sudo apt-get update -y
-sudo apt-get install -y language-pack-en
+sudo apt -yqq update -y
+sudo apt -yqq install -y language-pack-en
 
 echo "--> Installing Tools" 
-sudo apt-get install -y default-jdk maven libssl-dev openssl git awscli curl jq unzip tree
+sudo apt -yqq install -y default-jdk maven libssl-dev openssl git awscli curl jq unzip tree
 sudo snap install go --classic 
 wget https://github.com/smallstep/cli/releases/download/v0.15.3/step-cli_0.15.3_amd64.deb
 sudo dpkg -i step-cli_0.15.3_amd64.deb
 sudo apt install -y debian-keyring debian-archive-keyring apt-transport-https
 
-echo "--> Setting hostname..."
+echo "--> Setting hostname"
 echo "${hostname}" | sudo tee /etc/hostname
 sudo hostname -F /etc/hostname
 
@@ -39,23 +39,23 @@ echo "--> Installing Docker"
 curl gnupg-agent software-properties-common
 curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo apt-key add -
 sudo add-apt-repository "deb [arch=amd64] https://download.docker.com/linux/ubuntu $(lsb_release -cs) stable"
-sudo apt-get update
-sudo apt-get install -y docker-ce docker-ce-cli containerd.io
+sudo apt -yqq update
+sudo apt -yqq install -y docker-ce docker-ce-cli containerd.io
 sudo usermod -a -G docker ${username}
 sudo systemctl enable docker
 
 echo "--> Installing Wetty"
-docker run --rm -p 80:3000 --detach --name wetty  wettyoss/wetty --ssh-host=172.17.0.1 --ssh-user ${username}
+docker run --rm -p 80:3000 --detach --name wetty wettyoss/wetty --ssh-host=172.17.0.1 --ssh-user ${username}
 
 echo "--> Cloning the repo"
 sudo mkdir /home/${username}/workdir
 cd /home/${username}/workdir
-git clone https://github.com/chilcano/mtls-apps-examples 
-##sudo git clone ${gitrepo}
+#git clone https://github.com/chilcano/mtls-apps-examples 
+sudo git clone ${gitrepo}
 ## important - make sure the owner is playground
 sudo chown -R ${username} /home/${username}/workdir
 
-echo "--> Running VS code container"
+echo "--> Running CodeServer container"
 sudo docker run -dit -p 8000:8080 \
   -v "$PWD:/home/coder/project" \
   -u "$(id -u):$(id -g)" \

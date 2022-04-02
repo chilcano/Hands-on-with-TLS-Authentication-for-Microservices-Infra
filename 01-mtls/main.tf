@@ -4,14 +4,14 @@ locals {
 
 module "network" {
   count            = 1
-  source           = "./modules/network"
+  source           = "../modules/network"
   required_subnets = 2
   PlaygroundName   = var.PlaygroundName
 }
 
 module "workstation" {
   count              = var.deploy_count
-  source             = "./modules/instance"
+  source             = "../modules/instance"
   PlaygroundName     = var.PlaygroundName
   security_group_ids = [module.network.0.allow_all_security_group_id]
   subnet_id          = module.network.0.public_subnets.0
@@ -32,7 +32,7 @@ module "workstation" {
 module "dns_workstation" {
   depends_on   = [module.workstation]
   count        = var.deploy_count
-  source       = "./modules/dns"
+  source       = "../modules/dns"
   instances    = var.instances
   instance_ips = element(module.workstation.*.public_ips, count.index)
   domain_name  = var.domain_name
