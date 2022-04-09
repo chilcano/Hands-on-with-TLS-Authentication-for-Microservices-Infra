@@ -20,7 +20,7 @@ variable "instance_count" {
 
 variable "PlaygroundName" {
   type        = string
-  default     = "test1"
+  default     = "test"
   description = "The playground name to tag all resouces with"
 }
 
@@ -34,6 +34,12 @@ variable "domain_name" {
   type        = string
   default     = "devopsplayground.org"
   description = "Your own registered domain name if using dns module"
+}
+
+variable "ssh_key_name" {
+  type        = string
+  default     = "tmpkey"
+  description = "SSH key name to give each resource"
 }
 
 // PLEASE TAKE CARE WHEN EDITING THIS DUE TO COSTS. 

@@ -8,9 +8,9 @@ sudo apt-get -yqq install -y default-jdk maven libssl-dev openssl git awscli cur
 sudo apt-get install -y debian-keyring debian-archive-keyring apt-get-transport-https
 
 echo "--> Cloning the repo"
-sudo mkdir /home/${username}/workdir
-cd /home/${username}/workdir
+#sudo mkdir /home/${username}/workdir
+#cd /home/${username}/workdir
 #git clone https://github.com/chilcano/mtls-apps-examples 
-sudo git clone ${gitrepo}
+#sudo git clone ${gitrepo}
 ## important - make sure the owner is playground
 #sudo chown -R ${username} /home/${username}/workdir

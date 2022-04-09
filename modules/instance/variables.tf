@@ -50,4 +50,8 @@ variable "purpose" {
   default     = "Playground"
   description = "A tag to give each resource"
 }
-
+variable "ssh_key_name" {
+  type        = string
+  default     = "tmpkey"
+  description = "SSH key name to give each resource"
+}
