@@ -1,11 +1,14 @@
 #!/usr/bin/env bash
 
-sudo apt-get -yqq update -y
-sudo apt-get -yqq install -y language-pack-en
+echo "--> Updating" 
+#sudo apt-get -yqq update 
+#sudo apt-get -yqq upgrade 
+
+#sudo apt-get -yqq install -y language-pack-en
 
 echo "--> Installing Tools" 
-sudo apt-get -yqq install -y default-jdk maven libssl-dev openssl git awscli curl jq unzip tree
-sudo apt-get install -y debian-keyring debian-archive-keyring apt-get-transport-https
+#sudo apt-get -yqq install -y default-jdk maven libssl-dev openssl git awscli curl jq unzip tree
+#sudo apt-get -y install debian-keyring debian-archive-keyring apt-get-transport-https
 
 echo "--> Cloning the repo"
 #sudo mkdir /home/${username}/workdir
